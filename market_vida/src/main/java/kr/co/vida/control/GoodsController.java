@@ -68,13 +68,7 @@ public class GoodsController {
 		int endNo = (int) map.get("endNo");
 		
 		// 상품 리스트 객체
-		if (orderBy==null) {
-			model.addAttribute("imgDto", imgService.readAll(startNo, endNo, cat_code, null));
-			
-		} else {
-			model.addAttribute("imgDto", imgService.readAll(startNo, endNo, cat_code, orderBy));
-			
-		}
+		model.addAttribute("imgDto", imgService.readAll(startNo, endNo, cat_code, orderBy));
 		model.addAttribute("getTotal", imgService.getTotalbyCode(cat_code));
 		model.addAttribute("code", Integer.toString(cat_code));
 		log.info("subCode=====>"+cat_code);
